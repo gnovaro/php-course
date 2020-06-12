@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Gustavo Novaro">
+    <title>PHP Course</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.0/styles/default.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item">
+                PHP Course
+              </a>
+              <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
+            </div>
+
+            <div id="navMenu" class="navbar-menu">
+              <div class="navbar-start">
+                <a class="navbar-item">
+                  Home
+                </a>
+                <a class="navbar-item">
+                  Documentation
+                </a>
+              </div>
+
+              <div class="navbar-end">
+                <div class="navbar-item">
+                  <div class="buttons">
+                    <a class="button is-dark">Github</a>
+                    <a class="button is-link">Download</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </nav>
+
+    <section class="hero is-light is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">PHP Course</h1>
+                <h2 class="subtitle">By Gustavo Novaro</h2>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+    <ol>
+        <li><a href="#intro">Introduction</a></li>
+        <li>
+            <a href="#install">Installation</a>
+            <ol>
+                <li><a href="#install_windows">Windows</a></li>
+                <li><a href="#install_linux">Linux</a></li>
+                <li><a href="#install_mac">Mac</a></li>
+                <li><a href="#built_server">Built-in web server</a></li>
+            </ol>
+        </li>
+        <li><a href="#test_install">Test Installation</a></li>
+        <li>
+            <a href="#modules">Modules</a>
+        </li>
+        <li><a href="#syntax">Syntax</a></li>
+        <li>
+            Debug
+            <ol>
+                <li>Debug</li>
+                <li>Linter</li>
+            </ol>
+        </li>
+        <li>
+            OOP
+        </li>
+        <li>
+            Patterns
+            <ul>
+                <li>MVC</li>
+            </ul>
+        </li>
+        <li>
+            Migrating from php 5x to 7.x
+            <ol>
+                <li>Differences</li>
+                <li>Tools</li>
+            </ol>
+        </li>
+    </ol>
+    </div>
+
+    <section class="section">
+        <h2 id="into" class="title">Introduction</h2>
+
+        <article class="media">
+            <figure class="media-left">
+                <p class="image is-128x128">
+                    <img src="asset/img/rasmus.jpg" alt="Rasmus Lerdorf">
+                    <figcaption>Rasmus Lerdorf</figcaption>
+                </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                <p>php is an interpreted language created in 1994 by <i>Rasmus Lerdorf</i>,
+                he wanted to know how many people were reading the curriculum vitae
+                on his website and for this he created a CGI in Perl that showed the
+                statistical result on the page itself.
+                Lerdorf called that PHP script an acronym for <i>Personal Home Page</i>.</p>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section class="section">
+        <h2 id="install" class="title">Installation</h2>
+
+        <h3 id="install_windows" class="title">Windows</h3>
+
+        <h4 class="subtitle">Manual installation (recommended)</h4>
+        <p>Download latest version from official site <a href="https://www.php.net/" target="_blank">php.net</a>
+        <p>
+        The latest version is 7.4 and you can download it from this link
+        <a href="https://windows.php.net/downloads/releases/php-7.4.7-Win32-vc15-x64.zip" target="_blank">php 7.4 thread safe</a>
+        </p>
+
+        <div class="container">
+        <ol>
+            <li>Unzip in c:\php</li>
+            <li>Add php dir to global PATH variable</li>
+        </ol>
+        </div>
+
+        <pre>
+        <code class="powershell">
+            c:\php
+        </code>
+        </pre>
+
+        <br>
+        <div class="is-fluid">
+            Add php binary dir to PATH variable <strong>c:\php</strong>
+            <img src="asset/img/install/windows_set_path.png" alt="Set windows PATH">
+        </div>
+
+        <h4 class="subtitle">Laragon installation (easy for managment and rapid install)</h4>
+        <p>Laragon is a WAMP (Windows + Apache + MySQL/MariaDB + PHP) enviroment easy setup</p>
+        <a href="https://laragon.org/" target="_blank">Laragon</a>
+        <!-- #windows -->
+
+        <h3 id="install_linux" class="title">Linux</h3>
+
+        <pre>
+        <code class="bash">
+            sudo apt-get install php7.4 php7.4-cli php7.4-fpm
+        </code>
+        </pre>
+
+        <h3 id="install_mac" class="title">Mac</h3>
+
+        <h3 id="built_server" class="title">Built-in web server</h3>
+        <p>Since version 5.4, php has by default an integrated server for local development. If we don't specify a file it will try to load index.php</p>
+        <img src="asset/img/install/local_buit_server.png" alt="local buit server">
+
+        <h3 id="test_install" class="title">Test Installation</h3>
+        <p>
+        If we want to prove that our installation has gone well what we
+        have to do is create a new file called info.php and inside it put
+        the following code
+        </p>
+        <img src="asset/img/code/phpinfo.png" alt="phpinfo">
+        <p>We should get a result page similar to</p>
+        <img src="asset/img/install/phpinfo_result.png" alt="phpinfo">
+
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 id="modules" class="title">Modules</h2>
+            <h3 class="subtitle">Checking loading modules</h3>
+
+            <pre>
+            <code class="console">
+                php -m
+            </code>
+            </pre>
+
+            <br>
+
+            <h3 class="subtitle">Enabled modules</h3>
+            <p>
+                To enable a module in php you have to edit the configuration file <strong>php.ini</strong> and remove the semicolon ( <strong>;</strong> ).
+                And restart the webserver</p>
+
+            <img src="asset/img/install/phpini.png" alt="php.ini">
+
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 id="syntax" class="title">Syntax</h2>
+            <p>The php code is enclosed within the tags:</p>
+            <pre>
+            <code class="php">
+                &lt;?php
+                    // This is a comment
+
+                    /*
+                        This is a comment
+                        in multiple
+                        lines
+                    */
+                ?&gt;
+            </code>
+            </pre>
+
+            <div class="notification is-success is-light">
+                <p>
+                    <i class="fas fa-info-circle"></i>
+                    <strong>Note:</strong> If you are going to include pure php code we recommend using only the opening tag <code class="php">&lt;?php</code>
+                    The php interpreter ignores the closing tag
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
