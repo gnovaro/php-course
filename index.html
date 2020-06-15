@@ -36,7 +36,7 @@
               <div class="navbar-end">
                 <div class="navbar-item">
                   <div class="buttons">
-                    <a class="button is-dark">Github</a>
+                    <a href="https://github.com/gnovaro/php-course" target="_blank" class="button is-dark">GitHub&nbsp;<i class="fab fa-github"></i></a>
                     <a class="button is-link">Download</a>
                   </div>
                 </div>
@@ -60,10 +60,11 @@
         <li>
             <a href="#install">Installation</a>
             <ol>
-                <li><a href="#install_windows">Windows</a></li>
-                <li><a href="#install_linux">Linux</a></li>
-                <li><a href="#install_mac">Mac</a></li>
-                <li><a href="#built_server">Built-in web server</a></li>
+                <li class="ml-4"><a href="#install_windows">Windows</a></li>
+                <li class="ml-4"><a href="#install_linux">Linux</a></li>
+                <li class="ml-4"><a href="#install_mac">Mac</a></li>
+                <li class="ml-4"><a href="#built_server">Built-in web server</a></li>
+                <li class="ml-4"><a href="#docker">Docker container</a></li>
             </ol>
         </li>
         <li><a href="#test_install">Test Installation</a></li>
@@ -72,27 +73,55 @@
         </li>
         <li><a href="#syntax">Syntax</a></li>
         <li>
-            Debug
+            <a href="#basics">Basics</a>
             <ol>
-                <li>Debug</li>
-                <li>Linter</li>
+                <li class="ml-4">Naming and convetions</li>
+                <li class="ml-4">Loops</li>
+                <li class="ml-4">PSR</li>
             </ol>
         </li>
         <li>
-            OOP
+            Debug
+            <ol>
+                <li class="ml-4">Debug</li>
+                <li class="ml-4">Linter</li>
+            </ol>
         </li>
         <li>
-            Patterns
+            Packages and dependencies
+            <ol>
+                <li  class="ml-4">Composer</li>
+            </ol>
+        </li>
+        <li>
+            <a href="#oop">Object-oriented programming (OOP)</a>
+            <ol>
+                <li class="ml-4"><a href="#class">Class</a></li>
+                <li class="ml-4"><a href="#object">Object</a></li>
+                <li class="ml-4"><a href="#attributes">Attributes</a></li>
+                <li class="ml-4"><a href="#methods">Methods</a></li>
+                <li class="ml-4"><a href="#constructor">Constructor</a></li>
+                <li class="ml-4"><a href="#heritage">Heritage</a></li>
+            </ol>
+        </li>
+        <li>
+            <a href="#patterns">Patterns</a>
             <ul>
-                <li>MVC</li>
+                <li class="ml-4"><a href="#mvc">MVC</a></li>
             </ul>
         </li>
         <li>
             Migrating from php 5x to 7.x
             <ol>
-                <li>Differences</li>
-                <li>Tools</li>
+                <li class="ml-4">Differences</li>
+                <li class="ml-4">Tools</li>
             </ol>
+        </li>
+        <li>
+            Frameworks
+        </li>
+        <li>
+            Resources
         </li>
     </ol>
     </div>
@@ -164,6 +193,7 @@
         </pre>
 
         <h3 id="install_mac" class="title">Mac</h3>
+        TODO
 
         <h3 id="built_server" class="title">Built-in web server</h3>
         <p>Since version 5.4, php has by default an integrated server for local development. If we don't specify a file it will try to load index.php</p>
@@ -179,6 +209,20 @@
         <p>We should get a result page similar to</p>
         <img src="asset/img/install/phpinfo_result.png" alt="phpinfo">
 
+        <h3 id="docker" class="title">Docker</h3>
+
+        <p>Docker is an open source project that automates the deployment of applications within software containers, providing an additional layer of virtualization abstraction and automation at the Linux operating system level.</p>
+
+        <h4 class="subtitle">Docker hub</h4>
+        <p>Is a library and community for container images</p>
+        <a href="https://hub.docker.com/" target="_blank">dockerhub</a>
+
+        <h4 class="subtitle">Docker desktop (Windows / Mac)</h4>
+
+        <p>Containerize applications on your desktop</p>
+        <a href="https://www.docker.com/products/docker-desktop"  target="_blank">Docker desktop</a>
+
+
     </section>
 
     <section class="section">
@@ -191,6 +235,11 @@
                 php -m
             </code>
             </pre>
+
+            <figure>
+                <p>Console result:</p>
+                <img src="asset/img/install/php_loaded_modules.png">
+            </figure>
 
             <br>
 
@@ -230,6 +279,118 @@
                 </p>
             </div>
         </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 id="basics" class="title">Basics</h2>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 id="oop" class="title">Object-oriented programming (OOP)</h2>
+        <h3 id="mvc" class="subtitle">Class</h3>
+        <p>A class is basically the definition or "blueprint" of how to build an object.</p>
+
+        <strong>Example:</strong>
+
+        <pre>
+        <code class="php">
+            class Person
+            {
+                // Atributtes
+                $name = null;
+            }
+        </code>
+        </pre>
+
+        <br>
+
+        <h3 id="object" class="subtitle">Object</h3>
+        <p>An object is an instance of a class, the construction of which is something concrete.<p>
+
+        <pre>
+        <code class="php">
+            class Person
+            {
+
+            }
+
+            $john = new Person();
+        </code>
+        </pre>
+
+        <br>
+
+        <h3 id="attributes" class="subtitle">Attributes</h3>
+        <p>The attributes of an object or its characteristics are what define it in itself: shape, color, height, width, weight, wheels</p>
+        <pre>
+        <code class="php">
+            class Person
+            {
+                // Attributes
+                $name = null;
+                $dob = null; // Date of birth
+                $height = null;
+                $weight = null;
+            }
+        </code>
+        </pre>
+        <br>
+
+        <h3 id="methods" class="subtitle">Methods</a>
+        <p>They are the actions they can take. In a car it could be starting, braking, stopping ...</p>
+        <pre>
+        <code class="php">
+            class Person
+            {
+                // Attributes
+                $dob = null; // Date of birth
+                $age = null;
+
+                // Methods
+                function getAge()
+                {
+                    // Today - Date of birth
+                    return $age;
+                }
+            }
+        </code>
+        </pre>
+        <br>
+        <br>
+
+        <h3 id="object" class="subtitle">Constructor</h3>
+        <p>The default constructor in php is the <strong>__construct()</strong> method, it is not mandatory to define it.</p>
+        <p>The constructor is the first method that is executed when building an object, it defines how it should be built, it is usually used to assign values to attributes of an object</p>
+
+        <pre>
+        <code class="php">
+        class Person
+        {
+            $name = null;
+
+            function __construct($name = null)
+            {
+                $this->name = $name;
+            }
+        }
+        </code>
+        </pre>
+
+        <p>Here we are going to introduce a new keyword "<strong>this</strong>", which refers to itself</p>
+        <pre>
+        <code class="php">
+            $john = new Person('John');
+        </code>
+        </pre>
+        <p>Here we create an instance of the Person object by calling the constructor.</p>
+    </section>
+
+    <section class="section">
+        <h2 id="patterns" class="title">Patterns</h2>
+        <h3 id="mvc" class="subtitle">Model-View-Controller (MVC)</h3>
+        https://medium.com/datadriveninvestor/model-view-controller-mvc-75bcb0103d66
     </section>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.0/highlight.min.js"></script>
